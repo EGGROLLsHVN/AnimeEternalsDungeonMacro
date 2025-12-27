@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    "formulahendry.code-runner",  // The ID for Code Runner
+    "ms-python.python",           // The ID for Python (if applicable)
+  ]
+}
