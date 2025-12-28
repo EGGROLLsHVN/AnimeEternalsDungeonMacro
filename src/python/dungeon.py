@@ -5,9 +5,10 @@ import pytesseract
 import numpy as np
 import datetime
 from PIL import Image
+import cv2
 
 sct = mss.mss()
-dungeon_monitor = {'top':188, 'left': 836, 'width': 250, 'height': 50}
+dungeon_monitor = {'top':188, 'left': 820, 'width': 250, 'height': 50}
 exit_monitor = {'top': 131, 'left': 696, 'width': 100, 'height': 50}
 
 class Dungeon:
@@ -24,6 +25,7 @@ class Dungeon:
 			dungeon_image = dungeon_image.resize((dungeon_image.width*3, dungeon_image.height*3), Image.Resampling.NEAREST)
 
 			dungeontext = pytesseract.image_to_string(dungeon_image, config = '--psm 7')
+
 			return(dungeontext.strip())
 		
 
