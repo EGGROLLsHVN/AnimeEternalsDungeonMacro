@@ -1,0 +1,13 @@
+// Do all changes here
+export const defaultConfig = {
+    "configVersion": 0,
+    "os": false,
+    "w1dungeons": {
+        "easy": false,
+        "medium": false,
+        "hard": false,
+        "insane": false,
+        "crazy": false,
+        "nightmare": false
+    }
+}
