@@ -1,0 +1,19 @@
+.selectionMenu {
+  display: grid;
+  grid-template-columns: 35% 60%;
+  gap: 2.5rem;
+
+}
+
+.toggles {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .5rem;
+}
+
+.toggles button {
+  width: 85%;
+  text-align: left;
+
+}

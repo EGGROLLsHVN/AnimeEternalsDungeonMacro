@@ -1,0 +1,50 @@
+.sidePanel {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logs {
+  width: 93%;
+  height: 40%;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  resize: none;
+  scrollbar-width: thin;
+}
+
+.performance {
+  width: 93%;
+  height: 20%;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  resize: none;
+  scrollbar-width: thin;
+}
+
+.startStop {
+  display: flex;
+  flex-direction: row;
+  align-items: normal;
+  gap: 1rem;
+  width: 88%; 
+  height: 75px;
+}
+
+.startStop button{
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  margin-left: 1.5rem;
+  
+}
+
+.startStop textarea {
+  width: 75%;
+  height: 100%;
+  resize: none;
+  box-sizing: border-box;
+  text-align: center;
+}
+
