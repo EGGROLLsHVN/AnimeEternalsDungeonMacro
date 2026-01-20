@@ -139,9 +139,9 @@ export function SidePanel() {
 
                         // If button is off turn on else turn off
                         if (!ssButton) {
-                            
+                            window.electron.startMacroRenderer();
                         } else {
-
+                            window.electron.stopMacroRenderer();
                         }
                         
                         }}>

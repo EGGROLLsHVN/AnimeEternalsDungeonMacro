@@ -15,5 +15,9 @@ electron.contextBridge.exposeInMainWorld("electron", {
         return () => {
             ipcRenderer.removeListener('new-log', subscription);
         };
-    }
+    },
+
+    startMacroRenderer: () => electron.ipcRenderer.send('start-macro'),
+    stopMacroRenderer: () => electron.ipcRenderer.send('stop-macro'),
+
 })

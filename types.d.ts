@@ -17,6 +17,9 @@ interface Window {
         changeUserSettingActionRenderer: (payload: userSettings) => void;
         onNewLog: (callback: (message: string) => void) => () => void;
         sendAppReady: () => void;
+        startMacroRenderer: () => void,
+        stopMacroRenderer: () => void,
+
     }
 }
 

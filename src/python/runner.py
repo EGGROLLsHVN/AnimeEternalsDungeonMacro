@@ -1,3 +1,4 @@
+import sys
 from dungeon import Dungeon
 import pyautogui
 import time
@@ -5,15 +6,28 @@ import json
 import os
 import threading
 
-filename = 'user-setting.json'
-file_path = os.path.join(os.getcwd(), filename)
+def get_config():
+    filename = 'user-settings.json'
+    
+    # in production mode
+    if getattr(sys, 'frozen', False):
+        application_path = os.path.dirname(sys.executable)
 
-with open(file_path, 'r') as file:
-  dungeon_difficulty = json.load(file)
+    # in development mode
+    else:
+        application_path = os.path.dirname(os.path.abspath(__file__))
+
+    file_path = os.path.join(application_path, filename)
+
+    with open(file_path, 'r') as file:
+        return json.load(file)
+  
+dungeon_difficulty = get_config()
 
 d = Dungeon()
 
 def dungeon_interval():
+
   while True:
 
     now = time.localtime()
@@ -39,10 +53,25 @@ def inside_dungeon():
 
     time.sleep(0.05)
 
-dungeonthread = threading.Thread(target=dungeon_interval, daemon=True)
-exitthread = threading.Thread(target=inside_dungeon, daemon=True)
-dungeonthread.start()
-exitthread.start()
+def runMacro():
+  dungeonthread = threading.Thread(target=dungeon_interval, daemon=True)
+  dungeonthread.start()
 
-while True:
-  time.sleep(1)
+
+def stopMacro():
+  exitthread = threading.Thread(target=inside_dungeon, daemon=True)
+  exitthread.start()
+
+if __name__ == "__main__":
+    print("Starting Macro")
+    runMacro()
+
+    try:
+        sys.stdin.read() 
+    except KeyboardInterrupt:
+        pass
+
+# dungeonthread = threading.Thread(target=dungeon_interval, daemon=True)
+# exitthread = threading.Thread(target=inside_dungeon, daemon=True)
+# dungeonthread.start()
+# exitthread.start()
