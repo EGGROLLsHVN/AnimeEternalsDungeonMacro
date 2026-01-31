@@ -31,10 +31,9 @@ export function startMacro() {
 
     if (pythonProcess.stdout) {
         pythonProcess.stdout.on('data', (data) => {
-            // Convert buffer to string and remove extra newlines
             const message = data.toString().trim();
             log(`[Python]: ${message}`);
-            console.log(`[Python]: ${message}`); // Ensure it prints to your terminal too
+            console.log(`[Python]: ${message}`);
         })
     }
 
